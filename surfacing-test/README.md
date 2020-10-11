@@ -71,7 +71,7 @@ Zooming in on the Alpha Shapes surfaces and looking at the wireframe model, it l
 ![Alpha Shapes surface meshing](images/alpha_shapes_zoomed.png)
 
 1. The remaining surfacing techniques need surface normals to proceed. Normal estimation of point cloud (note that many normals are behind the point cloud since the direction is reversed.)
-![Surface Normals](images/normal_estimatation.png)
+![Surface Normals](images/normal_estimation.png)
 
 1. Surface mesh created from point cloud using [Ball Pivoting](http://www.open3d.org/docs/release/tutorial/Advanced/surface_reconstruction.html#Ball-pivoting)
 ![Ball Pivoting surface meshing](images/ball_pivoting.png)
