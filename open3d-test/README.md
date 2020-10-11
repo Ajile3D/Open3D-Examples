@@ -35,8 +35,7 @@ The open3d-test.py example runs through a number of features that are described 
 
 As the example runs, a visualization window will pop up and show the progress of the 3D data so far. Below are screenshots showing what to expect at each step.
 
-![PCD Opened](/images/pcd_open.png)
-Format: ![The original point cloud, opened from .pcd file.](url)
+![PCD Opened](images/pcd_open.png)
 
 
 
