@@ -49,8 +49,6 @@ vol.bounding_polygon = o3d.utility.Vector3dVector(bounding.get_box_points())
 vol.axis_max = bounding.get_min_bound()[2]
 vol.axis_min = 0
 print(np.asarray(vol.bounding_polygon))
-#vol = plane_model
-#print(type(plane_model))
 pcd = vol.crop_point_cloud(pcd)
 # also see pcd.crop(bounding_box) to simply crop around a bounding box
 o3d.visualization.draw_geometries([pcd])
@@ -61,12 +59,12 @@ cl, ind = pcd.remove_statistical_outlier(nb_neighbors=20,
                                          std_ratio=2.0)
 display_inlier_outlier(pcd, ind)
 pcd = pcd.select_by_index(ind)
+o3d.visualization.draw_geometries([pcd])
 
-# downsample point cloud
+# downsample point cloud again
 downpcd = pcd.voxel_down_sample(voxel_size=1)
-o3d.visualization.draw_geometries([downpcd])
 
-# boudning box
+# bounding box
 aabb = pcd.get_axis_aligned_bounding_box()
 aabb.color = (1,0,0)
 obb = pcd.get_oriented_bounding_box()
@@ -104,9 +102,6 @@ for label in range(labels.max()):
 pcd = pcd.select_by_index(largestCluster)
 o3d.visualization.draw_geometries([pcd])
 
-# compute normals, needed for surfacing
-pcd.estimate_normals(search_param=o3d.geometry.KDTreeSearchParamHybrid(radius=1, max_nn=30))
-
 # surface with alpha shapes
 print("Run Alpha Shapes surface reconstruction.")
 alpha = 1.0
@@ -115,10 +110,13 @@ mesh = o3d.geometry.TriangleMesh.create_from_point_cloud_alpha_shape(pcd, alpha)
 mesh.compute_vertex_normals()
 o3d.visualization.draw_geometries([mesh], mesh_show_back_face=True)
 
+# compute normals, needed for surfacing
+pcd.estimate_normals(search_param=o3d.geometry.KDTreeSearchParamHybrid(radius=1, max_nn=30))
+o3d.visualization.draw_geometries([pcd], point_show_normal=True)
+
 # ball pivoting reconstruction
 print("Run ball pivoting surface reconstruction.")
 radii = [1]
-pcd.estimate_normals(search_param=o3d.geometry.KDTreeSearchParamHybrid(radius=1, max_nn=30))
 downpcd = pcd.voxel_down_sample(voxel_size=1)
 rec_mesh = o3d.geometry.TriangleMesh.create_from_point_cloud_ball_pivoting(
                downpcd, o3d.utility.DoubleVector(radii))
@@ -144,7 +142,8 @@ density_mesh.vertices = mesh.vertices
 density_mesh.triangles = mesh.triangles
 density_mesh.triangle_normals = mesh.triangle_normals
 density_mesh.vertex_colors = o3d.utility.Vector3dVector(density_colors)
-o3d.visualization.draw_geometries([density_mesh])
+density_mesh.compute_vertex_normals()
+o3d.visualization.draw_geometries([density_mesh], mesh_show_back_face=True)
 
 print('remove low density vertices')
 vertices_to_remove = densities < np.quantile(densities, 0.2)
