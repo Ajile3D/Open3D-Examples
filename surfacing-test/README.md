@@ -1,4 +1,4 @@
-# Surfacing-Test
+# 3D Point Cloud to Surface Mesh with Open3D
 
 ### Summary
 This is our first [Open3D](http://www.open3d.org) example program which creates a 3D mesh from a point cloud. It imports a point cloud which was captured from the [Ajile DepthScan](https://ajile.ca/depthscan3d/) which was exported to PCD format, then tries out a number of the features which are described in the [Open3D documentation and tutorials](http://www.open3d.org/docs/release/tutorial/Basic/index.html).
