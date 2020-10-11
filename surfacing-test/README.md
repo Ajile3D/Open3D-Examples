@@ -87,10 +87,6 @@ The mesh looks great, however obviously the webbing between fingers is an artifa
 1. Surface mesh from Poisson reconstruction, after low density vertices have been removed. Zoomed in wire mesh view.
 ![Poisson surface reconstruction meshing, low density points removed](images/poisson2.png)
 
+### Conclusions
 
-
-
-
-
-
-
+Overall we were very impressed with using Open3D for some basic 3D analysis. It is a very well designed library, which makes it very easy to use. Its documenation and the tutorials are also quite good. We were able to import our point clouds and get to work immediately, and the entire excercise only took an afternoon, which included installing the tools, working through the tutorials, writing the code, and running the tests. Having worked with other libraries like [Point Cloud Library](https://pointclouds.org/) in the past and making very little progress, I was amazed at how quickly we were able to get good results. In addition to the Open3D API being very well designed, the implementation is definitely highly optimized. Even throwing our 4 million point color point clouds at it, Open3D had no trouble in efficiently handling the data and quickly giving the results, usually in less than a second without even downsampling. Finally it seems that there is a good open source 3D library out there, similar to OpenCV but optimized for 3D imaging.
