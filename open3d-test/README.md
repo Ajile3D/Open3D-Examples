@@ -28,3 +28,15 @@ With Open3D installed, and a sample point cloud (from the [Ajile 3D-Data reposit
 python open3d-test.py ../../3D-Data/point_clouds/hand.pcd
 ```
 Where hand.pcd will be the path to any .pcd file of your choosing.
+
+### Expected Results
+
+The open3d-test.py example runs through a number of features that are described in the [Open3D tutorials](http://www.open3d.org/docs/release/tutorial/Basic/index.html). Since it is nice to try do something somewhat productive while learning a new tool, the underlying goal while putting together this simple test program was to create a clean surface mesh from our captured point clouds.
+
+As the example runs, a visualization window will pop up and show the progress of the 3D data so far. Below are screenshots showing what to expect at each step.
+
+![PCD Opened](/images/pcd_open.png)
+Format: ![The original point cloud, opened from .pcd file.](url)
+
+
+
