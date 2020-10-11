@@ -60,7 +60,7 @@ print("Statistical oulier removal")
 cl, ind = pcd.remove_statistical_outlier(nb_neighbors=20,
                                          std_ratio=2.0)
 display_inlier_outlier(pcd, ind)
-pcd = pcd.select_by_index(ind))
+pcd = pcd.select_by_index(ind)
 
 # downsample point cloud
 downpcd = pcd.voxel_down_sample(voxel_size=1)
