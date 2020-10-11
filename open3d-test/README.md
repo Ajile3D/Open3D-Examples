@@ -35,7 +35,62 @@ The open3d-test.py example runs through a number of features that are described 
 
 As the example runs, a visualization window will pop up and show the progress of the 3D data so far. Below are screenshots showing what to expect at each step.
 
+1. Open PCD File
 ![PCD Opened](images/pcd_open.png)
+
+1. Downsampled point cloud (Voxel size of 1.0 mm)
+![Downsampled](images/downsampled.png)
+
+1. Fit a plane to background points
+![Fit plane to background](images/fit_plane.png)
+
+1. Remove all points on or below the fit plane (remove all background points)
+![Remove background](images/remove_background.png)
+
+1. Run statistical outlier removal filter to get rid of noise around edges.
+![Statistical outlier removal](images/statistical_outlier_removal.png)
+
+1. Point cloud with outlier points removed
+![Outlier points removed](images/noise_removed.png)
+
+1. Bounding box and oriented bounding box (not useful for surfacing, just for visualization)
+![Bounding box](images/bounding_box.png)
+
+1. Convex hull of point cloud (not used for surfacing, but a nice filter for bounding the points)
+![Convex hull](images/convex_hull.png)
+
+1. 3D segmentation with [DBSCAN clustering](http://www.open3d.org/docs/release/tutorial/Basic/pointcloud.html#DBSCAN-clustering), to further elimate disconnected points before surface meshing. There were 17 clusters found, with the blue one being by far the largest.
+![Segmentation](images/segmentation.png)
+
+1. The largest segmented region. All smaller segments have been discarded.
+![Largest segment](images/largest_segment.png)
+
+1. Surface mesh from point cloud using [Alpha Shapes](http://www.open3d.org/docs/release/tutorial/Advanced/surface_reconstruction.html#Alpha-shapes)
+![Alpha Shapes surface meshing](images/alpha_shapes.png)
+Zooming in on the Alpha Shapes surfaces and looking at the wireframe model, it looks a bit noisy though:
+![Alpha Shapes surface meshing](images/alpha_shapes_zoomed.png)
+
+1. The remaining surfacing techniques need surface normals to proceed. Normal estimation of point cloud (note that many normals are behind the point cloud since the direction is reversed.)
+![Surface Normals](images/normal_estimatation.png)
+
+1. Surface mesh created from point cloud using [Ball Pivoting](http://www.open3d.org/docs/release/tutorial/Advanced/surface_reconstruction.html#Ball-pivoting)
+![Ball Pivoting surface meshing](images/ball_pivoting.png)
+Works better than Alpha Shapes, but the triangles are a bit too sparse, resulting in too many holes in the mesh.
+
+1. Surface mesh from point cloud using [Poisson surface reconstruction](http://www.open3d.org/docs/release/tutorial/Advanced/surface_reconstruction.html#Poisson-surface-reconstruction). 
+![Poisson surface reconstruction meshing](images/poisson1.png)
+The mesh looks great, however obviously the webbing between fingers is an artifact of the Poisson reconstruction algorithm!
+
+1. As described on the [Poisson surface reconstruction tutorial](http://www.open3d.org/docs/release/tutorial/Advanced/surface_reconstruction.html#Poisson-surface-reconstruction), we will use the density of points around each vertex to know if it is a real triangle if there are sufficient supporting points for it. Heat map (plasma color table) of point densities, brighter color means higher density.
+![Vertex Density](images/density.png)
+
+1. Surface mesh from Poisson reconstruction, after low density vertices have been removed. Zoomed in wire mesh view.
+![Poisson surface reconstruction meshing, low density points removed](images/poisson2.png)
+
+
+
+
+
 
 
 
