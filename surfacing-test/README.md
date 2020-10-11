@@ -1,7 +1,7 @@
-# Open3D-Test
+# Surfacing-Test
 
 ### Summary
-First [Open3D](http://www.open3d.org) test program. Imports a point cloud captured from the Ajile DepthScan which was exported in PCD format, then tries out a number of the features which are described in the [Open3D documentation and tutorials](http://www.open3d.org/docs/release/tutorial/Basic/index.html).
+First [Open3D](http://www.open3d.org) test program which creates a 3D mesh from a point cloud. Imports a point cloud captured from the [Ajile DepthScan](https://ajile.ca/depthscan3d/) which was exported in PCD format, then tries out a number of the features which are described in the [Open3D documentation and tutorials](http://www.open3d.org/docs/release/tutorial/Basic/index.html).
 
 ### Prerequisities
 This example assumes that you have already installed Open3D. If you have not, header over the the [Open3D tutorials page](http://www.open3d.org/docs/release/tutorial/Basic/index.html), the installation is covered [here](http://www.open3d.org/docs/release/tutorial/Basic/python_interface.html#Install-open3d-Python-package). We actually installed from source since we plan to incorporate some of our own features into Open3D, but installing with pip will be much easier if you don't need to see the C++ source code. The command to install open3d will then be:
@@ -19,7 +19,7 @@ Before running this example, you should be able to import the open3d library fro
 ```python
 import open3d as o3d
 ```
-Next, if you don't have any sample point cloud images to work with, you can download some of ours from the [Ajile 3D-Data repository](https://github.com/Ajile3D/3D-Data). We used the hand.pcd file for our initial tests.
+Next, if you don't have any sample point cloud images to work with, you can download some of ours from the [Ajile 3D-Data repository](https://github.com/Ajile3D/3D-Data). We used the hand.pcd file for our initial tests. This point cloud was captured with the [Ajile DepthScan](https://ajile.ca/depthscan3d/) at a distance of around 50 cm, in high resolution mode with a total capture time of around 400 ms. 
 
 ### Running the Example
 With Open3D installed, and a sample point cloud (from the [Ajile 3D-Data repository](https://github.com/Ajile3D/3D-Data)), you should be able to run the open3d-test.py example with the following command:
