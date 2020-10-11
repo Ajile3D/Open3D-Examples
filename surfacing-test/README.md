@@ -1,7 +1,7 @@
 # Surfacing-Test
 
 ### Summary
-First [Open3D](http://www.open3d.org) test program which creates a 3D mesh from a point cloud. Imports a point cloud captured from the [Ajile DepthScan](https://ajile.ca/depthscan3d/) which was exported in PCD format, then tries out a number of the features which are described in the [Open3D documentation and tutorials](http://www.open3d.org/docs/release/tutorial/Basic/index.html).
+This is our first [Open3D](http://www.open3d.org) example program which creates a 3D mesh from a point cloud. It imports a point cloud which was captured from the [Ajile DepthScan](https://ajile.ca/depthscan3d/) which was exported to PCD format, then tries out a number of the features which are described in the [Open3D documentation and tutorials](http://www.open3d.org/docs/release/tutorial/Basic/index.html).
 
 ### Prerequisities
 This example assumes that you have already installed Open3D. If you have not, header over the the [Open3D tutorials page](http://www.open3d.org/docs/release/tutorial/Basic/index.html), the installation is covered [here](http://www.open3d.org/docs/release/tutorial/Basic/python_interface.html#Install-open3d-Python-package). We actually installed from source since we plan to incorporate some of our own features into Open3D, but installing with pip will be much easier if you don't need to see the C++ source code. The command to install open3d will then be:
