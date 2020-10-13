@@ -25,7 +25,7 @@ Next, if you don't have any sample point cloud images to work with, you can down
 With Open3D installed, and a sample point cloud (from the [Ajile 3D-Data repository](https://github.com/Ajile3D/3D-Data)), you should be able to run the open3d-test.py example with the following command:
 
 ```
-python open3d-test.py ../../3D-Data/point_clouds/hand.pcd
+python surfacing-test.py ../../3D-Data/point_clouds/hand.pcd
 ```
 Where hand.pcd will be the path to any .pcd file of your choosing.
 
